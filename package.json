@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/src/index.js",
-    "dev": "nodemon server/src/index.js"
+    "dev": "nodemon server/src/index.js",
+    "client": "npm start --prefix client",
+    "conc": "concurrently \"npm run dev\" \"npm run client\" "
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,7 @@
   },
   "type": "module",
   "devDependencies": {
+    "concurrently": "^7.2.0",
     "nodemon": "^2.0.16"
   }
 }
