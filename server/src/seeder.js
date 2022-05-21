@@ -11,7 +11,7 @@ import connectDB from "./config/db.js";
 dotenv.config();
 connectDB();
 
-const importData = async ()=>{
+const importData = async () => {
     try {
         await Order.deleteMany();
         await Product.deleteMany();
@@ -27,7 +27,7 @@ const importData = async ()=>{
         console.log('Data Imported!'.green.inverse)
         process.exit()
 
-    } catch (error){
+    } catch (error) {
         console.log(`${error}`.red.inverse);
         process.exit(1)
     }
