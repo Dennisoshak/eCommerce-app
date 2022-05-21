@@ -8,7 +8,9 @@
     "start": "node server/src/index.js",
     "dev": "nodemon server/src/index.js",
     "client": "npm start --prefix client",
-    "conc": "concurrently \"npm run dev\" \"npm run client\" "
+    "conc": "concurrently \"npm run dev\" \"npm run client\" ",
+    "data:import": "node server/src/seeder.js",
+    "data:destroy": "node server/src/seeder.js -d"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,8 @@
   },
   "homepage": "https://github.com/Dennisoshak/eCommerce-app#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "install": "^0.13.0",
