@@ -10,6 +10,6 @@ app.get("/", (req, res) => {
 
 app.use("/api", productsRouter);
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log(`Server running on PORT ${process.env.PORT}`);
 });
