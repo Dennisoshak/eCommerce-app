@@ -15,10 +15,15 @@ app.get("/", (req, res) => {
 
 app.use("/api", productsRouter);
 
+<<<<<<< HEAD
 app.use(notFound)
 
 app.use(errorHandler)
 
 app.listen(process.env.PORT, () => {
   console.log(`Server running on PORT ${process.env.PORT}`.yellow.bold);
+=======
+app.listen(process.env.PORT || 5000, () => {
+  console.log(`Server running on PORT ${process.env.PORT}`);
+>>>>>>> 2d98b18e0edc75c39e6c3ada7e77e1a3668c75e5
 });
