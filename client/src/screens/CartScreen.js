@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cart Screen = () => {
+const CartScreen = () => {
   return <div>Cart</div>;
 };
 
