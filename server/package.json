@@ -9,11 +9,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
-  "dependencies": {
-    "install": "^0.13.0",
-    "mongodb": "^4.6.0",
-    "mongoose": "^6.3.3",
-    "npm": "^8.10.0"
-  }
+  "type": "module"
 }
