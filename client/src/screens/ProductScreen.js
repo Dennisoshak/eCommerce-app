@@ -49,43 +49,6 @@ function ProductScreen() {
               <ListGroup.Item>
                 <h3>{product.name}</h3>
               </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Status:</Col>
-                  <Col>
-                    <strong>
-                      {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
-                    </strong>
-                  </Col>
-                </Row>
-              </ListGroup.Item>
-              {product.countInStock > 0 && (
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Qty</Col>
-                    <Col>
-                      <Form.Select
-                        value={qty}
-                        onChange={(e) => setQty(e.target.value)}>
-                        {" "}
-                        {[...Array(product.countInStock).keys()].map((x) => (
-                          <option key={x + 1} value={x + 1}>
-                            {x + 1}
-                          </option>
-                        ))}
-                      </Form.Select>
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
-              )}
-              <ListGroup.Item>
-                <Button
-                  onClick={addToCartHandler}
-                  className="btn-block"
-                  type="button">
-                  Add to Cart
-                </Button>
-              </ListGroup.Item>
             </ListGroup>
           </Col>
           <Col md={3}>
