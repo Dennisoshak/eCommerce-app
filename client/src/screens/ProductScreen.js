@@ -18,7 +18,7 @@ import Message from "../components/Message";
 function ProductScreen() {
   const [qty, setQty] = useState(1);
   const { id } = useParams();
-  const history = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
@@ -28,7 +28,7 @@ function ProductScreen() {
   }, [id, dispatch]);
 
   const addToCartHandler = () => {
-    history(`/cart/${id}?qty=${qty}`);
+    navigate(`/cart/${id}?qty=${qty}`);
   };
   return (
     <>
@@ -88,6 +88,7 @@ function ProductScreen() {
                       <Col>Qty</Col>
                       <Col>
                         <FormSelect
+                          as="select"
                           value={qty}
                           onChange={(e) => setQty(e.target.value)}>
                           {[...Array(product.countInStock).keys()].map((x) => (
@@ -95,6 +96,7 @@ function ProductScreen() {
                               {x + 1}
                             </option>
                           ))}
+                          1
                         </FormSelect>
                       </Col>
                     </Row>
