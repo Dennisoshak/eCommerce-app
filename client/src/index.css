@@ -11,3 +11,7 @@ padding:0.1rem;
 Link {
   text-decoration: none;
 }
+.shipping {
+  width:60%;
+  margin:2rem 20%;
+}
