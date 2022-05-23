@@ -5,6 +5,7 @@ import HomeScreen from "./screens/HomeScreen.js";
 import CartScreen from "./screens/CartScreen.js";
 import ProductScreen from "./screens/ProductScreen";
 import ShippingScreen from "./screens/ShippingScreen";
+import PaymentScreen from "./screens/PaymentScreen";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
@@ -16,6 +17,7 @@ function App() {
         <Container>
           <Routes>
             <Route path="/" element={<HomeScreen />} />
+            <Route path="/payment" element={<PaymentScreen />} />
             <Route path="/cart/:id" element={<CartScreen />} />
             <Route path="/cart" element={<CartScreen />} />
             <Route path="/product/:id" element={<ProductScreen />} />
