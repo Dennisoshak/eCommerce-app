@@ -4,6 +4,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { logout } from "../actions/userActions";
 import { useNavigate } from "react-router-dom";
+import "../index.css";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -27,8 +28,8 @@ const Header = () => {
             <Nav className="ml-2">
               <LinkContainer to="/cart">
                 <Nav.Link>
-                  <i className="fas fa-shopping-cart"></i>
-                  &nbsp;Cart
+                  <i className="fas fa-shopping-cart"> </i>
+                  &nbsp; Cart
                 </Nav.Link>
               </LinkContainer>
               {userInfo ? (
