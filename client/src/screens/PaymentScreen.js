@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { useParams, useLocation, useNavigate } from "react-router-dom";
-import { Row, Col, Form, Container, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { Col, Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import CheckoutSteps from "../components/CheckoutSteps";
 import { savePaymentMethod } from "../actions/cartActions";
-import "../index.css";
 import FormContainer from "../components/FormContainer";
 
 const PaymentScreen = () => {
