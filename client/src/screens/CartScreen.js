@@ -24,7 +24,7 @@ const CartScreen = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
-  console.log(cart)
+  console.log(cart);
 
   useEffect(() => {
     if (productId) {
@@ -59,7 +59,7 @@ const CartScreen = () => {
                     <Image src={item.image} alt={item.name} fluid rounded />
                   </Col>
                   <Col md={3}>
-                    <Link to={`/product/${item.product}`}>{}</Link>
+                    <Link to={`/product/${item.product}`}>{item.name}</Link>
                   </Col>
                   <Col md={2}>${item.price}</Col>
                   <Col md={2}>

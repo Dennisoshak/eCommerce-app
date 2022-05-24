@@ -26,10 +26,10 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-2">
-              <LinkContainer to="/cart">
+              <LinkContainer to="/cart" className="cart">
                 <Nav.Link>
-                  <i className="fas fa-shopping-cart"> </i>
-                  &nbsp; Cart
+                  <i className="fas fa-shopping-cart"> </i>  Cart
+                 
                 </Nav.Link>
               </LinkContainer>
               {userInfo ? (
@@ -45,7 +45,7 @@ const Header = () => {
                 <LinkContainer to="/login">
                   <Nav.Link>
                     <i className="fas fa-user"></i>
-                    &nbsp;Sign In
+                    <span> &nbsp;Sign In</span>
                   </Nav.Link>
                 </LinkContainer>
               )}
