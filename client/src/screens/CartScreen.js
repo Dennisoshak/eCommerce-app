@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { Link, useParams, useLocation, useNavigate } from "react-router-dom";
 import {
   Row,
   Col,
@@ -17,13 +17,13 @@ import "../index.css";
 const CartScreen = () => {
   const { productId } = useParams();
   const location = useLocation();
+  const navigate = useNavigate();
   const qty = location.search ? Number(location.search.split("=")[1]) : 1;
-  console.log(qty);
-
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
-  console.log(cart);
 
   useEffect(() => {
     if (productId) {
@@ -35,7 +35,11 @@ const CartScreen = () => {
     dispatch(removeCart(id));
   };
   const checkoutHandler = () => {
-    console.log("checked");
+    if (userInfo) {
+      navigate("/shipping");
+    } else {
+      navigate("/login");
+    }
   };
   return (
     <Row>
@@ -65,7 +69,8 @@ const CartScreen = () => {
                         dispatch(
                           addToCart(item.product, Number(e.target.value))
                         )
-                      }>
+                      }
+                    >
                       {[...Array(item.countInStock).keys()].map((x) => (
                         <option key={x + 1} value={x + 1}>
                           {x + 1}
@@ -77,7 +82,8 @@ const CartScreen = () => {
                     <Button
                       type="button"
                       variant="light"
-                      onClick={() => removeFromCartHandler(item.product)}>
+                      onClick={() => removeFromCartHandler(item.product)}
+                    >
                       <i className="fas fa-trash"></i>
                     </Button>
                   </Col>
@@ -105,7 +111,8 @@ const CartScreen = () => {
                 type="button"
                 className="btn-block"
                 disabled={cartItems.length === 0}
-                onClick={checkoutHandler}>
+                onClick={checkoutHandler}
+              >
                 {" "}
                 Proceed To Checkout
               </Button>
