@@ -1,10 +1,15 @@
 import express from "express";
 const router = express.Router();
-import {getProducts, getProductById} from '../controllers/productController.js'
+import { protect, admin } from "../middleware/authMiddleware.js";
+import {
+  getProducts,
+  getProductById,
+  deleteProduct,
+} from "../controllers/productController.js";
 
 // Fetch all products
-router.route("/products").get(getProducts);
+router.route("/").get(getProducts);
 
-router.route("/products/:id").get(getProductById);
+router.route("/:id").get(getProductById).delete(protect, admin, deleteProduct);
 
 export default router;
