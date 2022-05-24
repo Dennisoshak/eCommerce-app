@@ -5,7 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message.js";
 import Loader from "../components/Loader.js";
 import FormContainer from "../components/FormContainer.js";
-import { getUserDetails } from "../actions/userActions.js";
+import {
+  getUserDetails,
+  updateUser,
+  userUpdate,
+} from "../actions/userActions.js";
 import { USER_UPDATE_RESET } from "../constants/userConstants";
 
 function UserEditScreen() {
@@ -14,14 +18,13 @@ function UserEditScreen() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   const dispatch = useDispatch();
-  const { userId } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
 
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
-  console.log(user);
 
-  const userUpdate = useSelector((state) => state.userUpdateProfile);
+  const userUpdate = useSelector((state) => state.userUpdate);
   const {
     loading: loadingUpdate,
     error: errorUpdate,
@@ -33,18 +36,19 @@ function UserEditScreen() {
       dispatch({ type: USER_UPDATE_RESET });
       navigate("/admin/userlist");
     } else {
-      if (!user.name || user._id !== userId) {
-        dispatch(getUserDetails(userId));
+      if (!user.name || user._id !== id) {
+        dispatch(getUserDetails(id));
       } else {
         setName(user.name);
         setEmail(user.email);
         setIsAdmin(user.isAdmin);
       }
     }
-  }, [dispatch, navigate, userId, user, successUpdate]);
+  }, [dispatch, navigate, id, user, successUpdate]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    dispatch(updateUser({ _id: id, name, email, isAdmin }));
   };
 
   return (
@@ -68,7 +72,8 @@ function UserEditScreen() {
                 type="name"
                 placeholder="Enter name"
                 value={name}
-                onChange={(e) => setName(e.target.value)}></Form.Control>
+                onChange={(e) => setName(e.target.value)}
+              ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="email">
@@ -77,7 +82,8 @@ function UserEditScreen() {
                 type="email"
                 placeholder="Enter email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}></Form.Control>
+                onChange={(e) => setEmail(e.target.value)}
+              ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="isadmin">
@@ -85,7 +91,8 @@ function UserEditScreen() {
                 type="checkbox"
                 label="Is Admin"
                 checked={isAdmin}
-                onChange={(e) => setIsAdmin(e.target.checked)}></Form.Check>
+                onChange={(e) => setIsAdmin(e.target.checked)}
+              ></Form.Check>
             </Form.Group>
 
             <Button type="submit" variant="primary">
