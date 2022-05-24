@@ -11,6 +11,7 @@ import { Container } from "react-bootstrap";
 import LoginScreen from "./screens/LoginScreen.js";
 import RegisterScreen from "./screens/RegisterScreen.js";
 import ProfileScreen from "./screens/ProfileScreen.js";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomeScreen />} />
             <Route path="/payment" element={<PaymentScreen />} />
-          
+            <Route path="/placeorder" element={<PlaceOrderScreen />} />
+
             <Route path="/product/:id" element={<ProductScreen />} />
             <Route path="/shipping" element={<ShippingScreen />} />
             <Route path="/login" element={<LoginScreen />} />
@@ -29,7 +31,7 @@ function App() {
             <Route path="/register" element={<RegisterScreen />} />
             <Route path="/cart/:id" element={<CartScreen />} />
             <Route path="/cart" element={<CartScreen />} />
-</Routes>
+          </Routes>
         </Container>
       </main>
       <Footer />
