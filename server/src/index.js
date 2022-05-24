@@ -3,21 +3,23 @@ import "dotenv/config";
 import colors from "colors";
 import productsRouter from "./routes/productRoutes.js";
 import userRouter from "./routes/userRoute.js";
+import orderRouter from "./routes/orderRoutes.js";
 import connectDB from "./config/db.js";
 import { notFound, errorHandler } from "./middleware/errorMidlleware.js";
 
 connectDB();
 
 const app = express();
-app.use(express.json())
+app.use(express.json());
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
 app.use("/api", productsRouter);
 app.use("/api/users", userRouter);
+app.use("/api/orders", orderRouter);
 
-app.use(notFound)
+app.use(notFound);
 
 app.use(errorHandler);
 
