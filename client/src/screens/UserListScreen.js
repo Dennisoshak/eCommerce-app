@@ -26,10 +26,12 @@ const UserListScreen = () => {
     } else {
       navigate("/login");
     }
-  }, [dispatch, navigate, userInfo, successDelete]);
+  }, [dispatch, userInfo, successDelete]);
 
   const deleteHandler = (id) => {
-    dispatch(deleteUser(id));
+    if (window.confirm("Are you sure")) {
+      dispatch(deleteUser(id));
+    }
   };
 
   return (
@@ -43,10 +45,10 @@ const UserListScreen = () => {
         <Table striped bordered hover responsive className="table-sm">
           <thead>
             <tr>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Admin</th>
+              <th>ID</th>
+              <th>NAME</th>
+              <th>EMAIL</th>
+              <th>ADMIN</th>
               <th></th>
             </tr>
           </thead>
@@ -74,7 +76,8 @@ const UserListScreen = () => {
                   <Button
                     variant="danger"
                     className="btn-sm"
-                    onClick={() => deleteHandler(user._id)}>
+                    onClick={() => deleteHandler(user._id)}
+                  >
                     <i className="fas fa-trash"></i>
                   </Button>
                 </td>

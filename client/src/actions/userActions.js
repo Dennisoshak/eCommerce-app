@@ -12,11 +12,9 @@ import {
   USER_REGISTER_SUCCES,
   USER_UPDATE_PROFILE_FAIL,
   USER_UPDATE_PROFILE_REQUEST,
-  USER_UPDATE_PROFILE_RESET,
   USER_UPDATE_PROFILE_SUCCES,
   USER_LIST_SUCCES,
   USER_LIST_REQUEST,
-  USER_DETAILS_RESET,
   USER_LIST_FAIL,
   USER_LIST_RESET,
   USER_DELETE_REQUEST,
@@ -60,13 +58,11 @@ export const login = (email, password) => async (dispatch) => {
 
 export const logout = () => (dispatch) => {
   localStorage.removeItem("userInfo");
-<<<<<<< HEAD
   dispatch({
     type: USER_LOGOUT,
   });
   dispatch({ type: USER_DETAILS_RESET });
   dispatch({ type: ORDER_LIST_MY_RESET });
-=======
   localStorage.removeItem("cartItems");
   localStorage.removeItem("shippingAddress");
   localStorage.removeItem("paymentMethod");
@@ -75,7 +71,6 @@ export const logout = () => (dispatch) => {
   // dispatch({ type: ORDER_LIST_RESET });
   dispatch({ type: USER_LIST_RESET });
   document.location.href = "/login";
->>>>>>> 0e685ce0d05b0c8c990f0b9686560b1cd741c597
 };
 
 export const register = (name, email, password) => async (dispatch) => {
@@ -186,7 +181,6 @@ export const listUsers = () => async (dispatch, getState) => {
     } = getState();
     const config = {
       headers: {
-        "Content-Type": "application/json",
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
