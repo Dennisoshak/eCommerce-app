@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { Row, Col, Button, ListGroup, Image, Card } from "react-bootstrap";
+import { Link, useParams } from "react-router-dom";
+import { Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import { PayPalButton } from "react-paypal-button-v2";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader";
@@ -11,7 +11,6 @@ import { ORDER_PAY_RESET } from "../constants/orderConstants";
 
 const OrderScreen = () => {
   const [sdkReady, setSdkReady] = useState(false);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
   const orderDetails = useSelector((state) => state.orderDetails);

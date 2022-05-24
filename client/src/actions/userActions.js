@@ -1,6 +1,7 @@
 import {
   USER_DETAILS_FAIL,
   USER_DETAILS_REQUEST,
+  USER_DETAILS_RESET,
   USER_DETAILS_SUCCES,
   USER_LOGIN_FAIL,
   USER_LOGIN_REQUEST,
@@ -11,8 +12,10 @@ import {
   USER_REGISTER_SUCCES,
   USER_UPDATE_PROFILE_FAIL,
   USER_UPDATE_PROFILE_REQUEST,
+  USER_UPDATE_PROFILE_RESET,
   USER_UPDATE_PROFILE_SUCCES,
 } from "../constants/userConstants";
+import { ORDER_LIST_MY_RESET } from "../constants/orderConstants";
 import axios from "axios";
 
 export const login = (email, password) => async (dispatch) => {
@@ -52,6 +55,8 @@ export const logout = () => (dispatch) => {
   dispatch({
     type: USER_LOGOUT,
   });
+  dispatch({ type: USER_DETAILS_RESET });
+  dispatch({ type: ORDER_LIST_MY_RESET });
 };
 
 export const register = (name, email, password) => async (dispatch) => {
@@ -139,6 +144,9 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       type: USER_UPDATE_PROFILE_SUCCES,
       payload: data,
     });
+
+    dispatch({ type: USER_LOGIN_SUCCES, payload: data });
+    localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: USER_UPDATE_PROFILE_FAIL,
