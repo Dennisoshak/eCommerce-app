@@ -13,7 +13,7 @@ const PlaceOrderScreen = () => {
     (acc, item) => acc + item.price * item.qty,
     0
   );
-  cart.shippingPrice = cart.itemsPrice > 100 ? 0 : 22.0;
+  cart.shippingPrice = (cart.itemsPrice > 100 ? 0 : 22.0).toFixed(2);
   cart.taxPrice = Number(0.18 * cart.itemsPrice).toFixed(2);
   cart.totalPrice = (
     Number(cart.itemsPrice) +
@@ -111,7 +111,8 @@ const PlaceOrderScreen = () => {
                   type="button"
                   className="btn-block"
                   disabled={cart.cartItems === 0}
-                  onClick={placeOrderHandler}>
+                  onClick={placeOrderHandler}
+                >
                   Place Order
                 </Button>
               </ListGroup.Item>
