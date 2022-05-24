@@ -24,6 +24,7 @@ const CartScreen = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+  console.log(cart)
 
   useEffect(() => {
     if (productId) {
@@ -69,8 +70,7 @@ const CartScreen = () => {
                         dispatch(
                           addToCart(item.product, Number(e.target.value))
                         )
-                      }
-                    >
+                      }>
                       {[...Array(item.countInStock).keys()].map((x) => (
                         <option key={x + 1} value={x + 1}>
                           {x + 1}
@@ -82,8 +82,7 @@ const CartScreen = () => {
                     <Button
                       type="button"
                       variant="light"
-                      onClick={() => removeFromCartHandler(item.product)}
-                    >
+                      onClick={() => removeFromCartHandler(item.product)}>
                       <i className="fas fa-trash"></i>
                     </Button>
                   </Col>
@@ -111,8 +110,7 @@ const CartScreen = () => {
                 type="button"
                 className="btn-block"
                 disabled={cartItems.length === 0}
-                onClick={checkoutHandler}
-              >
+                onClick={checkoutHandler}>
                 {" "}
                 Proceed To Checkout
               </Button>
