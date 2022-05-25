@@ -40,7 +40,7 @@ const createProduct = asyncHandler(async (req, res) => {
     description: "Sample Description",
   });
   // const createdProduct = await product.save();
-  res.status(201).json({ product });
+  res.status(201).json(product);
 });
 
 const updateProduct = asyncHandler(async (req, res) => {
