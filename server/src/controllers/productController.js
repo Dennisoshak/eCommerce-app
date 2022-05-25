@@ -17,6 +17,7 @@ const getProductById = asyncHandler(async(req, res) => {
 })
 
 const createProductReview = asyncHandler(async(req, res) => {
+  console.log(req.user)
   const {rating, comment} = req.body
   const product = await Product.findById(req.params.id);
 
