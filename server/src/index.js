@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
-app.use("/api", productsRouter);
+app.use("/api/products", productsRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 

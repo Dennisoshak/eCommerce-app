@@ -5,7 +5,7 @@ import { Navbar, Container, Nav, NavDropdown, Col, Row } from "react-bootstrap";
 import { logout } from "../actions/userActions";
 import SearchBox from "./SearchBox";
 import { useNavigate } from "react-router-dom";
-
+import "../index.css";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const Header = () => {
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>ProShop</Navbar.Brand>
+            <Navbar.Brand>MADShop</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
