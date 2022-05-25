@@ -25,52 +25,53 @@ const Header = () => {
             <Navbar.Brand>MADShop</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Row>
-              <Col md={9}>
-                <SearchBox />
-              </Col>
-              <Col md={3}>
-                <Nav className="ml-2">
-                  <LinkContainer to="/cart">
+          <Navbar.Collapse
+            id="basic-navbar-nav"
+            className="justify-content-between"
+          >
+            <Col md={5}>
+              <SearchBox />
+            </Col>
+            <Col md={7}>
+              <Nav className="ml-2 justify-content-end">
+                <LinkContainer to="/cart">
+                  <Nav.Link>
+                    <i className="fas fa-shopping-cart"></i>
+                    &nbsp;Cart
+                  </Nav.Link>
+                </LinkContainer>
+                {userInfo ? (
+                  <NavDropdown title={userInfo.name} id="username">
+                    <LinkContainer to="/profile">
+                      <NavDropdown.Item>Profile</NavDropdown.Item>
+                    </LinkContainer>
+                    <NavDropdown.Item onClick={logoutHandler}>
+                      Logout
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                ) : (
+                  <LinkContainer to="/login">
                     <Nav.Link>
-                      <i className="fas fa-shopping-cart"></i>
-                      &nbsp;Cart
+                      <i className="fas fa-user"></i>
+                      &nbsp;Sign In
                     </Nav.Link>
                   </LinkContainer>
-                  {userInfo ? (
-                    <NavDropdown title={userInfo.name} id="username">
-                      <LinkContainer to="/profile">
-                        <NavDropdown.Item>Profile</NavDropdown.Item>
-                      </LinkContainer>
-                      <NavDropdown.Item onClick={logoutHandler}>
-                        Logout
-                      </NavDropdown.Item>
-                    </NavDropdown>
-                  ) : (
-                    <LinkContainer to="/login">
-                      <Nav.Link>
-                        <i className="fas fa-user"></i>
-                        &nbsp;Sign In
-                      </Nav.Link>
+                )}
+                {userInfo && userInfo.isAdmin && (
+                  <NavDropdown title="Admin" id="adminmenu">
+                    <LinkContainer to="/admin/userList">
+                      <NavDropdown.Item>Users</NavDropdown.Item>
                     </LinkContainer>
-                  )}
-                  {userInfo && userInfo.isAdmin && (
-                    <NavDropdown title="Admin" id="adminmenu">
-                      <LinkContainer to="/admin/userList">
-                        <NavDropdown.Item>Users</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/admin/productList">
-                        <NavDropdown.Item>Products</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/admin/orderList">
-                        <NavDropdown.Item>Orders</NavDropdown.Item>
-                      </LinkContainer>
-                    </NavDropdown>
-                  )}
-                </Nav>
-              </Col>
-            </Row>
+                    <LinkContainer to="/admin/productList">
+                      <NavDropdown.Item>Products</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/admin/orderList">
+                      <NavDropdown.Item>Orders</NavDropdown.Item>
+                    </LinkContainer>
+                  </NavDropdown>
+                )}
+              </Nav>
+            </Col>
           </Navbar.Collapse>
         </Container>
       </Navbar>
