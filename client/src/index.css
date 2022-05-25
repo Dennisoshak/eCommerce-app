@@ -8,9 +8,12 @@ h1 {
   font-size: 1.4rem;
   padding: 0.1rem;
 }
-Link {
+.link {
   text-decoration: none;
 }
-.cart{
-  margin-right:2rem;
+.cart {
+  margin-right:1.5rem;
+}
+strong {
+  text-decoration:none;
 }
