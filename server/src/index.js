@@ -2,7 +2,7 @@ import express from "express";
 import path from "path";
 import "dotenv/config";
 import colors from "colors";
-import morgan from 'morgan'
+import morgan from "morgan";
 import productsRouter from "./routes/productRoutes.js";
 import userRouter from "./routes/userRoute.js";
 import orderRouter from "./routes/orderRoutes.js";
@@ -14,8 +14,8 @@ connectDB();
 
 const app = express();
 
-if(process.env.NODE_ENV==='development'){
-  app.use(morgan('dev'))
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
 }
 
 app.use(express.json());
@@ -23,8 +23,7 @@ app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
-app.use("/api", productsRouter);
-app.use("/api/products", productRoutes);
+app.use("/api/products", productsRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/upload", uploadRouter);
