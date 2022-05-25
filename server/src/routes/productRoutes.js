@@ -14,6 +14,8 @@ const router = express.Router();
 router.route("/").get(getProducts).post(protect, admin, createProduct);
 router.route("/:id/reviews").post(protect, createProductReview);
 router.get("/top", getTopProducts);
+
+// Fetch all products
 router
   .route("/:id")
   .get(getProductById)
