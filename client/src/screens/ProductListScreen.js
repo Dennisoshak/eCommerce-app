@@ -46,7 +46,7 @@ const ProductListScreen = () => {
     } else {
       dispatch(listProducts());
     }
-  }, [dispatch, userInfo, successDelete, successCreate, createdProduct]);
+  }, [dispatch, userInfo, successDelete, successCreate, createdProduct, navigate]);
 
   const deleteHandler = (id) => {
     if (window.confirm("Are you sure")) {

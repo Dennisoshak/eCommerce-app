@@ -19,7 +19,7 @@ function LoginScreen(props) {
     if (userInfo) {
       navigate("/");
     }
-  }, [userInfo]);
+  }, [userInfo, navigate]);
 
   const submitHandler = async (e) => {
     e.preventDefault();

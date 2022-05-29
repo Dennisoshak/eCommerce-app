@@ -117,8 +117,7 @@ function ProductScreen() {
                           <Form.Select
                             as="select"
                             value={qty}
-                            onChange={(e) => setQty(e.target.value)}
-                          >
+                            onChange={(e) => setQty(e.target.value)}>
                             {[...Array(product.countInStock).keys()].map(
                               (x) => (
                                 <option key={x + 1} value={x + 1}>
@@ -137,8 +136,7 @@ function ProductScreen() {
                       onClick={addToCartHandler}
                       disabled={product.countInStock === 0}
                       className="btn-block"
-                      type="button"
-                    >
+                      type="button">
                       Add to Cart
                     </Button>
                   </ListGroup.Item>
@@ -171,8 +169,7 @@ function ProductScreen() {
                         <Form.Control
                           as="select"
                           value={rating}
-                          onChange={(e) => setRating(e.target.value)}
-                        >
+                          onChange={(e) => setRating(e.target.value)}>
                           <option value="">Select...</option>
                           <option value="1">1 - Poor</option>
                           <option value="2">2 - Fair</option>
@@ -187,8 +184,9 @@ function ProductScreen() {
                           as="textarea"
                           row="3"
                           value={comment}
-                          onChange={(e) => setComment(e.target.value)}
-                        ></Form.Control>
+                          onChange={(e) =>
+                            setComment(e.target.value)
+                          }></Form.Control>
                       </Form.Group>
                       <Button type="submit" variant="primary">
                         Submit

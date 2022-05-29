@@ -26,6 +26,7 @@ function ProductEditScreen() {
 
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
+  console.log(product);
   const productUpdate = useSelector((state) => state.productUpdate);
   const {
     loading: loadingUpdate,
@@ -89,8 +90,7 @@ function ProductEditScreen() {
                 type="name"
                 placeholder="Enter name"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
-              ></Form.Control>
+                onChange={(e) => setName(e.target.value)}></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="price">
@@ -99,8 +99,7 @@ function ProductEditScreen() {
                 type="number"
                 placeholder="Enter Price"
                 value={price}
-                onChange={(e) => setPrice(e.target.value)}
-              ></Form.Control>
+                onChange={(e) => setPrice(e.target.value)}></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="image">
@@ -109,8 +108,7 @@ function ProductEditScreen() {
                 type="text"
                 label="Insert URL Image"
                 value={image}
-                onChange={(e) => setImage(e.target.value)}
-              ></Form.Control>
+                onChange={(e) => setImage(e.target.value)}></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="brand">
@@ -119,8 +117,7 @@ function ProductEditScreen() {
                 type="text"
                 label="Insert Brand"
                 value={brand}
-                onChange={(e) => setBrand(e.target.value)}
-              ></Form.Control>
+                onChange={(e) => setBrand(e.target.value)}></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="countinstock">
@@ -129,8 +126,9 @@ function ProductEditScreen() {
                 type="number"
                 label="Enter stock of product"
                 value={countInStock}
-                onChange={(e) => setCountInStock(e.target.value)}
-              ></Form.Control>
+                onChange={(e) =>
+                  setCountInStock(e.target.value)
+                }></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="category">
@@ -139,8 +137,7 @@ function ProductEditScreen() {
                 type="text"
                 label="Insert Category"
                 value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              ></Form.Control>
+                onChange={(e) => setCategory(e.target.value)}></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="description">
@@ -151,8 +148,7 @@ function ProductEditScreen() {
                 type="text"
                 label="Insert Description"
                 value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              ></Form.Control>
+                onChange={(e) => setDescription(e.target.value)}></Form.Control>
             </Form.Group>
 
             <Button className="mt-2" type="submit" variant="primary">

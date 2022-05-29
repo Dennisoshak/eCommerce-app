@@ -42,7 +42,7 @@ function ProfileScreen() {
         setEmail(user.email);
       }
     }
-  }, [userInfo, dispatch, user]);
+  }, [userInfo, dispatch, user, navigate, success]);
 
   const submitHandler = async (e) => {
     e.preventDefault();

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import { PayPalButton } from "react-paypal-button-v2";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,7 +28,7 @@ const OrderScreen = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   const orderPay = useSelector((state) => state.orderPay);
-  const { success: successPay, loading: loadingPay } = orderPay;
+  const { success: successPay } = orderPay;
 
   const orderDeliver = useSelector((state) => state.orderDeliver);
   const { success: successDeliver, loading: loadingDeliver } = orderDeliver;
@@ -60,7 +60,7 @@ const OrderScreen = () => {
         setSdkReady(true);
       }
     }
-  }, [order, id, successPay, successDeliver]);
+  }, [order, id, successPay, successDeliver, userInfo, navigate, dispatch]);
 
   if (!loading) {
     order.itemsPrice = order.orderItems
@@ -189,7 +189,6 @@ const OrderScreen = () => {
               </ListGroup.Item>
               {!order.isPaid && (
                 <ListGroup.Item>
-                  {loadingPay && <Loader />}
                   {!sdkReady ? (
                     <Loader />
                   ) : (
@@ -209,8 +208,7 @@ const OrderScreen = () => {
                     <Button
                       type="button"
                       className="btn btn-block flex-grow-1"
-                      onClick={deliverHandler}
-                    >
+                      onClick={deliverHandler}>
                       Mark as Delivered
                     </Button>
                   </ListGroup.Item>
