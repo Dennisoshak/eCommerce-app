@@ -39,7 +39,7 @@ export const login = (email, password) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      "/api/users/login",
+      "http://localhost:5000/api/users/login",
       { email, password },
       config
     );
@@ -156,7 +156,11 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.put(`/api/users/profile`, user, config);
+    const { data } = await axios.put(
+      `localhost/api/users/profile`,
+      user,
+      config
+    );
     dispatch({
       type: USER_UPDATE_PROFILE_SUCCES,
       payload: data,

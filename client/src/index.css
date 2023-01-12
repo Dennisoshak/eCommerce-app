@@ -12,10 +12,10 @@ h1 {
   text-decoration: none;
 }
 .cart {
-  margin-right:1.5rem;
+  margin-right: 1.5rem;
 }
 strong {
-  text-decoration:none;
+  text-decoration: none;
 }
 
 .carousel-item-next,
@@ -33,7 +33,7 @@ strong {
 }
 .carousel-inner {
   margin-bottom: 2rem;
-  height:280px;
+  height: 280px;
 }
 .carousel-h2 {
   font-size: 1rem;
@@ -42,13 +42,14 @@ strong {
   height: 220px;
   padding: 30px;
   margin: 40px;
-  border-radius: 50%;
   margin-left: auto;
   margin-right: auto;
-
 }
 .carousel a {
   margin: 0 auto;
+}
+.carousel {
+  border-radius: 8px;
 }
 @media (max-width: 900px) {
   .carousel-caption h2 {
