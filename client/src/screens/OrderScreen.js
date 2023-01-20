@@ -61,6 +61,7 @@ const OrderScreen = () => {
         setSdkReady(true);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [order, id, successPay, successDeliver]);
 
   if (!loading) {
