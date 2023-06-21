@@ -9,6 +9,7 @@ import orderRouter from "./routes/orderRoutes.js";
 import uploadRouter from "./routes/uploadRoutes.js";
 import connectDB from "./config/db.js";
 import { notFound, errorHandler } from "./middleware/errorMidlleware.js";
+import cors from "cors"
 
 connectDB();
 
@@ -19,6 +20,8 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.use(express.json());
+
+app.use(cors())
 
 app.use("/api/products", productsRouter);
 app.use("/api/users", userRouter);
@@ -43,7 +46,7 @@ if (process.env.NODE_ENV === "production") {
     res.send("API is running...");
   });
 }
-
+console.log(__dirname)
 app.use(notFound);
 
 app.use(errorHandler);
