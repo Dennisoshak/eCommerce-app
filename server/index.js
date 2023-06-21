@@ -11,7 +11,7 @@ import connectDB from "./config/db.js";
 import { notFound, errorHandler } from "./middleware/errorMidlleware.js";
 import cors from "cors"
 
-connectDB();
+const db = connectDB();
 
 const app = express();
 
